@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap");
+
+/* Import base CSS file */
+@import url(./base/button.css);
+@import url(./base/input.css);
+
+/* Import layout admin CSS file */
+@import url(./layouts/admin/header.css);
+@import url(./layouts/admin/menu.css);
+@import url(./layouts/admin/content.css);
+@import url(./layouts/admin/account.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: "Noto Sans", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+th {
+  height: 44px;
+  padding: 0 16px;
+}
+
+td {
+  height: 40px;
+  padding: 0 16px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  height: 17px;
+  width: 17px;
+  cursor: pointer;
+}

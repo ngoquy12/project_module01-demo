@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Tài khoản</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="admin-header-left">
+        <i class="fa-solid fa-bars"></i>
+        <span>Quản trị viên</span>
+      </div>
+      <div class="admin-header-right">
+        <i class="fa-solid fa-bell"></i>
+        <img
+          class="avatar"
+          src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0="
+          alt=""
+        />
+        <span class="user-name">Ngọ Văn Quý</span>
+        <div class="option-container">
+          <i id="iconDropdown" class="fa-solid fa-chevron-down"></i>
+          <ul id="listOption" class="list-option">
+            <li class="option">Thông tin cá nhân</li>
+            <li class="option">Đổi mật khẩu</li>
+            <li class="option">Đăng xuất</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="admin-account-main">
+      <menu class="admin-menu">
+        <a class="admin-menu-link" href="./home.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Trang chủ</span>
+        </a>
+        <a class="admin-menu-link active" href="./account.html">
+          <i class="fa-solid fa-users"></i>
+          <span>Quản lý tài khoản</span>
+        </a>
+        <a class="admin-menu-link" href="./category.html">
+          <i class="fa-solid fa-list"></i>
+          <span>Quản lý danh mục</span>
+        </a>
+        <a class="admin-menu-link" href="./product.html">
+          <i class="fa-brands fa-product-hunt"></i>
+          <span>Quản lý sản phẩm</span>
+        </a>
+        <a class="admin-menu-link" href="./order.html">
+          <i class="fa-solid fa-bookmark"></i>
+          <span>Quản lý đơn hàng</span>
+        </a>
+      </menu>
+      <div class="admin-account-content">
+        <div class="admin-account-toolbar">
+          <h2>Tài khoản</h2>
+          <button id="btnOpenForm" class="btn btn-primary">
+            Thêm mới tài khoản
+          </button>
+        </div>
+        <div class="admin-account-search">
+          <input
+            class="input"
+            type="text"
+            placeholder="Tìm kiếm tài khoản theo tên"
+          />
+        </div>
+        <div class="admin-account-data">
+          <table border="1">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Trạng thái</th>
+                <th colspan="2">Chức năng</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- Form thêm mới user -->
+
+    <div id="formAddUser" class="overlay" style="display: none">
+      <form class="form-container">
+        <div class="form-header">
+          <h3>Thêm mới tài khoản</h3>
+          <i id="iconCloseForm" class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="form-body">
+          <div class="form-group">
+            <label for="userName">Họ và tên</label>
+            <input id="userName" type="text" class="input" />
+            <p class="user-error">Tên không được để trống.</p>
+          </div>
+          <div class="form-group">
+            <label for="gender">Giới tính</label>
+            <div class="list-radio">
+              <div class="radio-group">
+                <input checked value="0" name="gender" id="male" type="radio" />
+                <label for="male">Nam</label>
+              </div>
+              <div class="radio-group">
+                <input value="1" name="gender" id="female" type="radio" />
+                <label for="female">Nữ</label>
+              </div>
+              <div class="radio-group">
+                <input value="2" name="gender" id="other" type="radio" />
+                <label for="other">Khác</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth">Ngày sinh</label>
+            <input id="dateOfBirth" type="date" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Số điện thoại</label>
+            <input id="phoneNumber" type="text" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="text" class="input" />
+            <p class="email-error">Tên không được để trống.</p>
+          </div>
+          <div class="form-group">
+            <label for="">Trạng thái</label>
+            <div class="list-radio">
+              <div class="radio-group">
+                <input
+                  value="1"
+                  checked
+                  name="status"
+                  id="active"
+                  type="radio"
+                />
+                <label for="active">Đang hoạt động</label>
+              </div>
+              <div class="radio-group">
+                <input value="0" name="status" id="inActive" type="radio" />
+                <label for="inActive">Ngừng hoạt động</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button type="button" id="btnCloseForm" class="btn btn-primary">
+            Hủy
+          </button>
+          <button id="btnSubmit" type="submit" class="btn btn-primary">
+            Thêm mới
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const iconDropdown = document.querySelector("#iconDropdown");
+      const listOption = document.querySelector("#listOption");
+
+      // Toggle listOption khi click vào trong icon dropdown
+      iconDropdown.addEventListener("click", (e) => {
+        // Ngăn chặn sự kiện nỗi bọt từ con lên cha
+        e.stopPropagation();
+        if (listOption.style.display === "block") {
+          listOption.style.display = "none";
+        } else {
+          listOption.style.display = "block";
+        }
+      });
+
+      const handleCloseElementWindown = (element) => {
+        // Khi click vào một nơi bất kỳ trên màn hình thì ẩn đi listOption
+        window.addEventListener("click", () => {
+          if (element.style.display === "block") {
+            element.style.display = "none";
+          }
+        });
+      };
+
+      handleCloseElementWindown(listOption);
+
+      // Khi click vào một nơi bất kỳ trên màn hình thì ẩn đi listOption
+      //   window.addEventListener("click", () => {
+      //     if (listOption.style.display === "block") {
+      //       listOption.style.display = "none";
+      //     }
+      //   });
+    </script>
+    <script type="module" src="../../js/admin/account.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+  </body>
+</html>
